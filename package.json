@@ -1,0 +1,25 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Tecnologias-Blockchain-y-Contratos-Inte/Obligatorio_2021-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tecnologias-Blockchain-y-Contratos-Inte/Obligatorio_2021-2/issues"
+  },
+  "homepage": "https://github.com/Tecnologias-Blockchain-y-Contratos-Inte/Obligatorio_2021-2#readme",
+  "devDependencies": {
+    "hardhat": "^2.6.6"
+  },
+  "dependencies": {
+    "ethers": "^5.4.7"
+  }
+}
