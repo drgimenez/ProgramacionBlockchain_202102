@@ -9,6 +9,8 @@ contract MyTestContract is Test2 {
     string public myString;
     uint256 public myint;
     Test2 public myTestContract;
+    bool public allowDeposit;
+    bool public pause;
 
     // Enums
     enum myEnum {
@@ -45,6 +47,11 @@ contract MyTestContract is Test2 {
         _;
     }
 
+    modifier pausable() {
+        require(!pause, "Contract is in pause");
+        _;
+    }
+
     // Constructor
     constructor(Test2 _myTestContractAddress) Test2() payable {
         // Initialization
@@ -61,15 +68,29 @@ contract MyTestContract is Test2 {
         return address(this).balance;
     }
 
-    function withdraw(uint256 _amount) external onlyOwner() balance(_amount) {
-        payable(owner).transfer(_amount);
+    function withdraw(address _remitent, uint256 _amount) external onlyOwner() pausable() balance(_amount) {
+        payable(_remitent).transfer(_amount);
     }
 
     function getVersion() external pure override returns(string memory) {
         return "1.0.1";
     }
 
-    receive() external payable {}
+    function setAllowDeposit(bool _newValue) external onlyOwner() {
+        allowDeposit = _newValue;
+    }
 
-    fallback() external payable {}
+    function setpause(bool _newValue) external onlyOwner() {
+        allowDeposit = _newValue;
+    }
+
+    receive() external payable {
+        if(!allowDeposit) {
+            revert();
+        }
+    }
+
+    fallback() external payable {
+             
+    }
 }

@@ -17,9 +17,13 @@
   },
   "homepage": "https://github.com/Tecnologias-Blockchain-y-Contratos-Inte/Obligatorio_2021-2#readme",
   "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
     "hardhat": "^2.6.6"
   },
   "dependencies": {
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
     "ethers": "^5.4.7"
   }
 }
